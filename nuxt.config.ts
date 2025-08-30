@@ -1,9 +1,9 @@
+// eslint-disable-next-line node/prefer-global/process
 const host = process.env.TAURI_DEV_HOST
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: 'latest',
-  devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
 
   vite: {
@@ -26,11 +26,22 @@ export default defineNuxtConfig({
   ignore: ['**/src-tauri/**'],
 
   modules: [
-    '@nuxt/ui',
     '@nuxt/eslint',
+    '@nuxt/ui-pro',
+    '@vueuse/nuxt',
+    '@nuxtjs/device',
   ],
+
+  devtools: { enabled: true },
 
   eslint: {
     config: { standalone: false },
+  },
+
+  icon: {
+    provider: 'iconify',
+    clientBundle: {
+      scan: { globInclude: ['apps/**/*'] },
+    },
   },
 })
