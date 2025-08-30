@@ -11,6 +11,15 @@ const {
   batteryLevel,
 } = useHeartRateBLE()
 
+const { reportHeartRate } = useHeartRateReporter()
+
+// Watch for heart rate changes and report to backend
+watch(heartRate, async (newHeartRate) => {
+  if (isConnected.value && newHeartRate && newHeartRate > 0) {
+    reportHeartRate(newHeartRate)
+  }
+})
+
 // Search and connect to BLE device
 async function connectDevice() {
   if (!isSupported.value) {
