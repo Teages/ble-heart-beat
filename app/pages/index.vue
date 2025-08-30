@@ -6,7 +6,7 @@
 
     <div class="flex items-center gap-2">
       <UButton
-        label="Documentation"
+        label="Docs"
         icon="i-lucide-square-play"
         to="https://ui.nuxt.com/getting-started/installation/nuxt"
         target="_blank"

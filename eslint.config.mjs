@@ -8,4 +8,5 @@ export default withNuxt(antfu({
   rules: {
     curly: ['error', 'all'],
   },
+  ignores: ['**/src-tauri/**'],
 }))
