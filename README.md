@@ -140,14 +140,9 @@ p {
 
 ### Supported Heart Rate Monitors
 
-This application works with any BLE heart rate monitor that implements the standard Bluetooth Heart Rate Service, including:
+This application works with any BLE heart rate monitor that implements the standard Bluetooth Heart Rate Service.
 
-- Polar H10, H9, H7
-- Wahoo TICKR series
-- Garmin HRM-Pro, HRM-Run
-- Suunto Smart Sensor
-- MyZone MZ-3
-- And many others following the BLE HR standard
+I tested with my Mi Band 10.
 
 ### Troubleshooting
 
