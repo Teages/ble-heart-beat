@@ -64,8 +64,8 @@ async fn handle_request(req: Request<hyper::body::Incoming>) -> Result<Response<
     <meta charset="utf-8">
 </head>
 <body>
-    <div class="heartbeat-container">
-        <p class="heartbeat-count" id="heartbeatCount">--</p>
+    <div id="container">
+        <p id="count">--</p>
     </div>
 
     <script>
@@ -73,20 +73,22 @@ async fn handle_request(req: Request<hyper::body::Incoming>) -> Result<Response<
             fetch('/api/heart')
                 .then(response => response.json())
                 .then(data => {
-                    const countElement = document.getElementById('heartbeatCount');
+                    const countElement = document.getElementById('count');
+                    const containerElement = document.getElementById('container');
                     
                     if (data.heart_beat !== null && data.heart_beat !== undefined) {
                         countElement.textContent = data.heart_beat;
-                        countElement.className = 'heartbeat-count connected';
+                        containerElement.className = 'connected';
                     } else {
                         countElement.textContent = '--';
-                        countElement.className = 'heartbeat-count disconnected';
+                        containerElement.className = 'disconnected';
                     }
                 })
                 .catch(error => {
-                    const countElement = document.getElementById('heartbeatCount');
+                    const countElement = document.getElementById('count');
+                    const containerElement = document.getElementById('container');
                     countElement.textContent = '--';
-                    countElement.className = 'heartbeat-count error';
+                    containerElement.className = 'error';
                 });
         }
         setInterval(updateHeartRate, 1000);
